@@ -4,38 +4,37 @@
   {% load static %}
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href={% static 'css/main.css' %}>
-  <title>{% block title %}{{title1}}{% endblock title %}  </title>
+  <link rel="stylesheet" href="{% static 'css/main.css' %}">
+  <title>{% block title %}{{ title1 }}{% endblock title %}</title>
 </head>
 <body>
   <header id="header">
-   <span class="logo">Proyecto</span>
-   <nav >
-    <ul class="menu" >
-      <li>
-        <a href={% url 'home' %}>Inicio</a>
-      </li>
-      <li>
-        <a href={% url 'core:product_list' %}>Productos</a>
-        
-      </li>
-      <li>
-        <a href={% url 'core:brand_list' %}>Marcas</a>
-       
-      </li>
-      <li>
-        <a href={% url 'core:supplier_list' %}>Proveedores</a>
-        
-      </li>
-    </ul>
-   </nav>
+    <span class="logo">Proyecto</span>
+    <nav>
+      <ul class="menu">
+        <li><a href="{% url 'home' %}">Inicio</a></li>
+        <li><a href="{% url 'core:product_list' %}">Productos</a></li>
+        <li><a href="{% url 'core:brand_list' %}">Marcas</a></li>
+        <li><a href="{% url 'core:supplier_list' %}">Proveedores</a></li>
+      </ul>
+    </nav>
   </header>
-  <main id="content">
-   {% block content %}
-    <h1>{{title2}}</h1>
-   {% endblock content %}
 
+  <main id="content">
+    <h1>{{ title2 }}</h1>
+    {% if request.path == '/productos/' %}  <!-- Comprueba si la página es la lista de productos -->
+    <h2>Agregar Nuevo Producto</h2>
+    <form method="post" enctype="multipart/form-data">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <button type="submit">Guardar Producto</button>
+    </form>
+    {% endif %}
+    {% block content %}{% endblock content %}
   </main>
-  
+
+  <footer>
+    <p>Este es el pie de página. Me costó mucho hacerlo solo :'D.</p>
+  </footer>
 </body>
 </html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Título de la página</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>{{ title }}</h1>
+        <h2>Estoy en productos</h2>
+        <div class="product">
+            <p>Descripción del producto A...</p>
+            <p>Precio: $XX.XX</p>
+        </div>
+        <div class="product">
+            <p>Descripción del producto B...</p>
+            <p>Precio: $XX.XX</p>
+        </div>
+        <div class="product">
+            <p>Descripción del producto C...</p>
+            <p>Precio: $XX.XX</p>
+        </div>
+        <div class="product">
+            <p>Descripción del producto D...</p>
+            <p>Precio: $XX.XX</p>
+        </div>
+        <div class="product">
+            <p>Descripción del producto E...</p>
+            <p>Precio: $XX.XX</p>
+        </div>
+        <div class="product">
+            <p>Descripción del producto F...</p>
+            <p>Precio: $XX.XX</p>
+        </div>
+        <div class="product">
+            <p>Descripción del producto G...</p>
+            <p>Precio: $XX.XX</p>
+        </div>
+    </div>
+
+    {% if request.path == '/productos/' %} {# Verifica si estamos en la página de productos #}
+    <div class="container">
+        <h2>Agregar Nuevo Producto</h2>
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Guardar</button>
+        </form>
+    </div>
+    {% endif %}
+</body>
+</html>

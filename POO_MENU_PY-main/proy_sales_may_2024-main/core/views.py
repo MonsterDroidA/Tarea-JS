@@ -1,45 +1,46 @@
-from django.http import HttpResponse, JsonResponse
-from django.shortcuts import render
-
-# Create your views here.
+from decimal import Decimal
+from django.shortcuts import render, redirect
+from .models import Product, ProductForm
 
 def home(request):
-   data = {
-        "title1":"Autor | TeacherCode",
-        "title2":"Super Mercado Economico"
-   }
-   return render(request,'core/home.html',data)
+    data = {
+        "title1": "Autor | Alain Machuca",
+        "title2": "Super Mercado El Pepe"
+    }
+    return render(request, 'core/home.html', data)
 
-  #  return HttpResponse(f"<h1>{data['title2']}<h1>\
-  #                        <h2>Le da la Bienvenida  a su selecta clientela</h2>")
-  #  products = ["aceite","coca cola","embutido"]
-  #  prods_obj=[{'nombre': producto} for producto in products] # json.dumps()
-  #  return JsonResponse({'mensaje2': data,'productos':prods_obj})
-
- 
-  #  return HttpResponse(f"<h1>{data['title2']}<h1>\
-  #                      <h2>Le da la Bienvenida  a su selecta clientela</h2>")
-   
 def product_List(request):
+    products = Product.objects.all()  # Obtener todos los productos
     data = {
         "title1": "Productos",
-        "title2": "Consulta De Productos"
+        "title2": "Consulta De Productos",
+        "products": products  # Pasar los productos al contexto de la plantilla
     }
-    # products = Product.objects.all() // data['title1'] == {{title1}}
-    # data["products"]=products
-    return render(request,"core/products/list.html",data)
+    if request.path == '/products/':  # Verificar si estamos en la página de productos
+        data['show_add_form'] = True  # Agregar una bandera para mostrar el formulario de agregar producto
+    return render(request, "core/products/list.html", data)
+
+
+def add_product(request):
+    if request.method == 'POST':
+        form = ProductForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            return redirect('product_list')  # Redirige a la lista de productos después de agregar uno nuevo
+    else:
+        form = ProductForm()
+    return render(request, 'core/products/add_product.html', {'form': form})
 
 def brand_List(request):
     data = {
         "title1": "Marcas",
         "title2": "Consulta De Marcas De Productos"
     }
-    return render(request,"core/brands/list.html",data)
+    return render(request, "core/brands/list.html", data)
 
 def supplier_List(request):
     data = {
         "title1": "Proveedores",
         "title2": "Consulta De proveedores"
     }
-    return render(request,"core/suppliers/list.html",data)
-  
+    return render(request, "core/suppliers/list.html", data)

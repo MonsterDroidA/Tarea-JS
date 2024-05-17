@@ -1,15 +1,14 @@
+/* Fuentes */
 @import url(//fonts.googleapis.com/css?family=Muli);
 
+/* Reset */
 body {
     margin: 0;
     padding: 0;
     font-family: 'Muli', sans-serif;
 }
 
-p {
-    line-height: 1.8;
-}
-
+/* Enlaces */
 a {
     color: #1e90ff; /* Azul */
     text-decoration: none;
@@ -19,6 +18,7 @@ a:hover {
     color: #0066cc; /* Azul más oscuro */
 }
 
+/* Encabezados */
 h1, h2, h3, h4, h5, h6 {
     font-family: 'Muli', sans-serif;
     font-weight: normal;
@@ -34,10 +34,7 @@ h2 {
     margin: 30px 0 20px;
 }
 
-ol {
-    line-height: 1.5;
-}
-
+/* Encabezado */
 #header {
     padding: 10px 100px;
     font-size: 14px;
@@ -61,6 +58,7 @@ ol {
     margin: 0;
     padding: 0;
 }
+
 #header ul.menu li {
     float: left;
     padding: 4px 10px;
@@ -74,6 +72,7 @@ ol {
 #header a {
     color: #f8f8ff; /* Blanco azulado */
 }
+
 #header a:hover {
     color: #fff;
 }
@@ -83,11 +82,12 @@ ol {
     padding-top: 4px;
 }
 
+/* Contenido */
 #content {
     padding: 30px 100px;
 }
 
-/* forms */
+/* Formularios */
 form {
     overflow: auto;
 }
@@ -103,6 +103,7 @@ label {
     color: #333; /* Gris oscuro */
     margin-bottom: 4px;
 }
+
 input, textarea {
     clear: both;
     float: left;
@@ -112,6 +113,7 @@ input, textarea {
     padding: 6px 10px;
     font-size: 14px;
 }
+
 input[type=submit], a.button {
     font-weight: bold;
     background: #1e90ff; /* Azul */
@@ -120,12 +122,14 @@ input[type=submit], a.button {
     font-size: 14px;
     text-transform: uppercase;
 }
+
 .errorlist {
     color: #cc0033; /* Rojo */
     float: left;
     clear: both;
     padding-left: 10px;
 }
+
 .helptext {
     margin: 0 0 20px 0;
     color: #aaa; /* Gris claro */
@@ -133,12 +137,14 @@ input[type=submit], a.button {
     float: left;
     font-size: 13px;
 }
-/* messages */
+
+/* Mensajes */
 ul.messages {
     margin: 10px 100px;
     padding: 0;
     list-style-type: none;
 }
+
 ul.messages li.success,
 ul.messages li.warning,
 ul.messages li.error,
@@ -149,18 +155,6 @@ ul.messages li.info {
     color: #fff;
 }
 
-ul.messages li.success { background: #32cd32; /* Verde lima */ }
-ul.messages li.success a { color: #228b22; /* Verde bosque */ }
-
-ul.messages li.error { background: #dc143c; /* Rojo carmesí */ }
-ul.messages li.error a { color: #8b0000; /* Rojo oscuro */ }
-
-ul.messages li.info { background: #add8e6; /* Azul claro */ }
-ul.messages li.info a { color: #4169e1; /* Azul real */ }
-
-ul.messages li.warning { background: #ffd700; /* Amarillo */ }
-ul.messages li.warning a { color: #ffa500; /* Naranja */ }
-
 ul.messages li a.close {
     margin: 0;
     float: right;
@@ -170,42 +164,42 @@ ul.messages li a.close {
     text-shadow: none;
 }
 
-.login-form {
-    float: left;
-}
-
-/* social-auth */
+/* Redes Sociales */
 .social {
     float: right;
 }
+
 .social li {
     list-style: none;
     padding: 10px 20px;
     margin: 0 0 10px 0;
 }
+
 .social li a {
     width: 100%;
     height: 100%;
     display: block;
     color: #fff;
 }
+
 .social li.facebook { background: #3b5998; /* Azul de Facebook */ }
 .social li.twitter { background: #1da1f2; /* Azul de Twitter */ }
 .social li.google { background: #db4437; /* Rojo de Google */ }
 
-
-/* images */
-
+/* Imágenes */
 .image-preview, .image-detail {
     max-width: 300px;
     float: left;
     margin: 0 20px 20px 0;
 }
+
 .image-detail { margin-top: 20px; }
+
 .image-info div {
     padding: 20px 0;
     overflow: auto;
 }
+
 .count {
     color: #aaa; /* Gris claro */
     border: 3px solid #ccc; /* Gris claro */
@@ -213,9 +207,12 @@ ul.messages li a.close {
     padding: 10px 20px;
     margin: 20px 10px 0;
 }
+
 a.like, a.follow { float: right; margin-top: -8px; }
 
+/* Lista de Imágenes */
 #image-list { overflow: hidden; }
+
 #image-list .image {
     float: left;
     width: 220px;
@@ -224,54 +221,65 @@ a.like, a.follow { float: right; margin-top: -8px; }
     border-top: 8px solid #1e90ff; /* Azul */
     background: #f0f0f0; /* Gris claro */
 }
+
 #image-list img { width: 220px; height: 220px; }
+
 #image-list .info { padding: 10px; }
+
 .image-likes div {
     float: left;
     width: auto;
     padding: 10px;
     text-align: center;
 }
+
 .image-likes img {
     width: 120px;
     height: 120px;
     border-radius: 50%;
 }
 
-/* users */
+/* Lista de Usuarios */
 #people-list img {
     width: 180px;
     height: 180px;
     border-radius: 50%;
     margin-bottom: 20px;
 }
+
 #people-list .user {
     width: 180px;
     float: left;
     overflow: auto;
     padding: 10px;
 }
+
 #people-list .info { text-align: center; }
+
 img.user-detail {
     border-radius: 50%;
     float: left;
 }
+
 .profile-info {
     float: left;
     overflow: auto;
     margin-right: 20px;
 }
+
 .image-container { margin-top: 40px; }
 
-/* actions */
+/* Acciones */
 .action {
     clear: both;
     overflow: auto;
 }
+
 .action .images {
     float: left;
     margin: 0 10px 10px 0;
 }
+
 .action .date {
     font-style: italic;
     color: #ccc; /* Gris claro */

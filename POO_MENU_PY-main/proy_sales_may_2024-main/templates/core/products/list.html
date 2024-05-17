@@ -1,5 +1,48 @@
 {% extends 'base.html' %}
 {% block content %}
-  {{title2}}
+  <h1>{{ title }}</h1>
   <h2>Estoy en productos</h2>
-{% endblock content  %}
+  <div>
+    <p>Descripción del producto A...</p>
+    <p>Precio: $XX.XX</p>
+  </div>
+  <br>
+  <div>
+    <p>Descripción del producto B...</p>
+    <p>Precio: $XX.XX</p>
+  </div>
+  <br>
+  <div>
+    <p>Descripción del producto C...</p>
+    <p>Precio: $XX.XX</p>
+  </div>
+  <br>
+  <div>
+    <p>Descripción del producto D...</p>
+    <p>Precio: $XX.XX</p>
+  </div>
+  <br>
+  <div>
+    <p>Descripción del producto E...</p>
+    <p>Precio: $XX.XX</p>
+  </div>
+  <br>
+  <div>
+    <p>Descripción del producto F...</p>
+    <p>Precio: $XX.XX</p>
+  </div>
+  <br>
+  <div>
+    <p>Descripción del producto G...</p>
+    <p>Precio: $XX.XX</p>
+  </div>
+
+  {% if request.path == '/productos/' %} {# Verifica si estamos en la página de productos #}
+  <h2>Agregar Nuevo Producto</h2>
+  <form method="post" enctype="multipart/form-data">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <button type="submit">Guardar</button>
+  </form>
+  {% endif %}
+{% endblock content %}
